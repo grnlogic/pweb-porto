@@ -16,8 +16,12 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+        <!-- Add Typed.js library -->
+        <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     </head>
     <body class="d-flex flex-column h-100">
+        <!-- Tombol Scroll ke Atas -->
+        <button id="scrollToTopBtn" style="display: none;">↑</button>
         <main class="flex-shrink-0">
             <!-- Navigation-->
             <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
@@ -42,7 +46,9 @@
                             <!-- Header text content-->
                             <div class="text-center text-xxl-start">
                                 <div class="badge bg-gradient-primary-to-secondary text-white mb-4"><div class="text-uppercase">Desain &middot; Development &middot;Editor</div></div>
-                                <div class="fs-3 fw-light text-muted">Mari kita membuat sesuatu yang hebat bersama!</div>
+                                <div class="fs-3 fw-light text-muted">
+                                    <span id="typed-text"></span>
+                                </div>
                                 <h1 class="display-3 fw-bolder mb-5"><span class="text-gradient d-inline">Portofolio Fajar Geran arifin, Universitas Siliwangi</span></h1>                                <div class="d-grid gap-3 d-sm-flex justify-content-sm-center justify-content-xxl-start mb-3">
                                     <a class="btn btn-primary btn-lg px-5 py-3 me-sm-3 fs-6 fw-bolder" href="resume.html">Resume</a>
                                     <a class="btn btn-outline-dark btn-lg px-5 py-3 fs-6 fw-bolder" href="projects.html">Projects</a>
@@ -215,5 +221,52 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
         <script src="js/scripts.js"></script>
+        <script>
+            // Tombol Scroll ke Atas
+            const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+            scrollToTopBtn.style.cssText = `
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 50px;
+                height: 50px;
+                background: rgba(0, 0, 0, 0.5);
+                color: white;
+                border: none;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                z-index: 1000;
+            `;
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 200) {
+                    scrollToTopBtn.style.display = 'flex';
+                } else {
+                    scrollToTopBtn.style.display = 'none';
+                }
+            });
+            scrollToTopBtn.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
+            // Initialize Typed.js
+            const options = {
+                strings: [
+                    "Mari kita membuat sesuatu yang hebat bersama!",
+                    "Bersama kita bisa mencapai lebih banyak!",
+                    "Kreativitas adalah kunci kesuksesan!"
+                ],
+                typeSpeed: 50,
+                backSpeed: 30,
+                backDelay: 3000,
+                loop: true
+            };
+            new Typed("#typed-text", options);
+        </script>
     </body>
 </html>
