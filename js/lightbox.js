@@ -1,5 +1,4 @@
 $(document).ready(function () {
-    // Append lightbox HTML structure to the body
     $('body').append(`
         <div id="lightbox-overlay" style="display: none;">
             <div id="lightbox-content">
@@ -9,7 +8,6 @@ $(document).ready(function () {
         </div>
     `);
 
-    // Style the lightbox elements
     $('#lightbox-overlay').css({
         position: 'fixed',
         top: 0,
@@ -52,14 +50,12 @@ $(document).ready(function () {
         lineHeight: '30px',
     });
 
-    // Open lightbox on image click
     $('img').on('click', function () {
         const imgSrc = $(this).attr('src');
         $('#lightbox-image').attr('src', imgSrc);
         $('#lightbox-overlay').fadeIn();
     });
 
-    // Close lightbox on button click or overlay click
     $('#lightbox-close, #lightbox-overlay').on('click', function () {
         $('#lightbox-overlay').fadeOut();
     });

@@ -1,0 +1,44 @@
+body {
+    background-color: #ffffff; /* Match navbar background color */
+    color: #212529; /* Match navbar text color */
+    animation: fadeIn 1s ease-in-out;
+}
+
+h1 {
+    font-size: 3rem;
+    color: #007bff; /* Match navbar brand color */
+}
+
+.card {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+textarea {
+    resize: none;
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.comment-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
